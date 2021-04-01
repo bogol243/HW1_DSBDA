@@ -6,6 +6,7 @@ from random import randint
 
 parser = argparse.ArgumentParser()
 parser.add_argument("num_lines")
+parser.add_argument("num_files")
 parser.add_argument("num_broken")
 parser.add_argument("date_begin")
 parser.add_argument("date_end")
@@ -13,16 +14,13 @@ args = parser.parse_args()
 #print(args.num_lines)
 
 trash_string = '*'*8+'#'*11
-num_broken = int(args.num_broken)
-num_lines = int(args.num_lines)
 log_string = Template('$level: $date dm-pc kernel:[ 3719.190261] audit: type=1400 audit(1616751714.042:55630): apparmor="DENIED" operation="ptrace" profile="snap.discord.discord" pid=5878 comm="Discord" requested_mask="read" denied_mask="read" peer="unconfined"')
 
-#date_start = date(2021,3,26)
+num_broken = int(args.num_broken)
+num_lines = int(args.num_lines)
+num_files = int(args.num_files)
 date_begin = datetime.fromisoformat(args.date_begin)
 date_end = datetime.fromisoformat(args.date_end)
-#date_end = datetime.fromtimestamp(date_begin.timestamp()+1*86400)#
-
-num_files = 4
 
 level = lambda: randint(0,7)
 level_counter = [0]*8
