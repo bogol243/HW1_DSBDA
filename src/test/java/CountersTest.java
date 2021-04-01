@@ -22,6 +22,9 @@ public class CountersTest {
         mapDriver = MapDriver.newMapDriver(mapper);
     }
 
+    /**
+     * Test for single broken string
+     */
     @Test
     public void testMapperCounterOne() throws IOException  {
         String brokenSring = "*****************";
@@ -32,6 +35,9 @@ public class CountersTest {
                 .findCounter(CounterType.MALFORMED).getValue());
     }
 
+    /**
+     * Test for single valid string
+     */
     @Test
     public void testMapperCounterZero() throws IOException {
 
@@ -49,6 +55,9 @@ public class CountersTest {
                 .findCounter(CounterType.MALFORMED).getValue());
     }
 
+    /**
+     * Test for both broken and valid strings
+     */
     @Test
     public void testMapperCounters() throws IOException {
         String s1 = "5: 2021-03-20 00:01:07 dm-pc kernel:[ 6300.903550] audit: type=1400 audit(1616187667.960:34481): apparmor=\"DENIED\" operation=\"ptrace\" profile=\"snap.discord.discord\" pid=14848 comm=\"Discord\" requested_mask=\"read\" denied_mask=\"read\" peer=\"unconfined\"";
